@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>寻计工作室 · 联络 & 加入</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f9faff 0%, #eef3fc 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 24px 40px 24px;
+        }
+
+        /* 导航栏 (与前几页完全一致) */
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            margin: 24px 0 32px 0;
+            padding: 12px 28px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 200px;
+            box-shadow: 0 10px 30px -10px rgba(20, 40, 80, 0.2);
+            border: 1px solid rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(145deg, #1e2e5c, #2b3d75);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 20px;
+            box-shadow: 0 8px 14px -4px rgba(30,46,92,0.3);
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 650;
+            background: linear-gradient(135deg, #1E2E5C, #2F427F);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e2e5c;
+            font-size: 16px;
+            transition: 0.15s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #4f8cff;
+            color: #0a1a3a;
+        }
+
+        .nav-links a.active {
+            border-bottom-color: #1e2e5c;
+            color: #0e1f3f;
+            font-weight: 600;
+        }
+
+        .nav-placeholder {
+            color: #4f658d;
+            background: #eaf2ff;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #cddfff;
+        }
+
+        /* 页面头部 */
+        .page-header {
+            max-width: 1200px;
+            width: 100%;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .page-header h2 {
+            font-size: 32px;
+            font-weight: 650;
+            background: linear-gradient(145deg, #17284c, #314882);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .header-sub {
+            color: #3865a0;
+            background: rgba(255,255,255,0.6);
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-size: 15px;
+            backdrop-filter: blur(4px);
+            border: 1px solid #cddfff;
+        }
+
+        /* 联系方式网格 */
+        .contact-grid {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+
+        /* 联系卡片 (继承原卡片风格) */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 42px;
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 32px 28px 34px 28px;
+            box-shadow: 0 25px 40px -18px rgba(0, 40, 80, 0.2);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 30px 50px -18px rgba(20, 60, 120, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .contact-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: #eaf2ff;
+            width: 70px;
+            height: 70px;
+            border-radius: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid white;
+        }
+
+        .contact-method {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1b2f56;
+            margin-bottom: 12px;
+        }
+
+        .contact-detail {
+            font-size: 18px;
+            color: #2d4270;
+            margin-bottom: 8px;
+            word-break: break-all;
+        }
+
+        .contact-note {
+            font-size: 14px;
+            color: #5b6f95;
+            margin-top: 12px;
+            padding-top: 16px;
+            border-top: 2px dashed rgba(79, 140, 255, 0.2);
+        }
+
+        .contact-action {
+            margin-top: 20px;
+            background: #eaf2ff;
+            border-radius: 60px;
+            padding: 14px 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #1b2f56;
+            border: 1px solid white;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.15s;
+            cursor: pointer;
+        }
+
+        .contact-action:hover {
+            background: #d1e2ff;
+        }
+
+        /* 社交媒体小卡片区 */
+        .social-section {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 48px;
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 36px 32px;
+            box-shadow: 0 20px 40px -15px rgba(15, 40, 70, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .social-title {
+            font-size: 24px;
+            font-weight: 650;
+            color: #1b2f56;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-item {
+            flex: 1 1 180px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 100px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid white;
+            transition: 0.15s;
+            cursor: pointer;
+            text-decoration: none;
+            color: #1e2e5c;
+        }
+
+        .social-item:hover {
+            background: white;
+            box-shadow: 0 8px 18px -10px #1b2f5630;
+        }
+
+        .social-emoji {
+            font-size: 28px;
+        }
+
+        .social-name {
+            font-weight: 600;
+            font-size: 17px;
+        }
+
+        /* 办公地址卡片 (独立大卡片) */
+        .address-card {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(14px);
+            border-radius: 48px;
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 34px 36px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .address-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .address-icon {
+            font-size: 48px;
+            background: #eaf2ff;
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .address-text h3 {
+            font-size: 24px;
+            color: #1b2f56;
+            margin-bottom: 8px;
+        }
+
+        .address-text p {
+            font-size: 18px;
+            color: #2d4270;
+            line-height: 1.5;
+        }
+
+        .map-link {
+            background: #eaf2ff;
+            border-radius: 60px;
+            padding: 14px 32px;
+            font-weight: 600;
+            color: #1b2f56;
+            text-decoration: none;
+            border: 1px solid white;
+            transition: 0.15s;
+        }
+
+        .map-link:hover {
+            background: #d1e2ff;
+        }
+
+        /* ========= 新增: 加入我们申请表下载模块 (完全整合原下载样式) ========= */
+        .join-download-section {
+            max-width: 1200px;
+            width: 100%;
+            margin: 30px 0 30px 0;
+        }
+
+        .join-card {
+            max-width: 580px; 
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px); 
+            border-radius: 48px; 
+            box-shadow: 0 30px 60px -20px rgba(0, 50, 100, 0.25); 
+            border: 1px solid rgba(255,255,255,0.5); 
+            padding: 32px 24px 36px 24px;
+            margin: 0 auto; /* 居中 */
+        }
+
+        .join-card h3 {
+            font-size: 34px; 
+            font-weight: 650; 
+            text-align: center; 
+            background: linear-gradient(135deg, #1E2E5C, #2B3D75); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            color: transparent; 
+            margin-bottom: 20px;
+        }
+
+        .weixin-guide { text-align: center; }
+        .manual-link-box { 
+            background: rgba(255,255,255,0.8); 
+            border-radius: 12px; 
+            padding: 16px; 
+            margin: 16px 0; 
+            border: 1px solid #cddfff; 
+            word-break: break-all; 
+            font-family: monospace; 
+            font-size: 14px; 
+            color: #12458c; 
+            border-left: 5px solid #4f8cff; 
+        }
+        .btn-primary { 
+            background: #1b2f56; 
+            border: none; 
+            border-radius: 100px; 
+            padding: 20px 24px; 
+            color: white; 
+            font-size: 20px; 
+            font-weight: 600; 
+            width: 100%; 
+            cursor: pointer; 
+            transition: all 0.2s; 
+        }
+        .btn-primary:disabled { 
+            background: #6c7f9e; 
+            cursor: not-allowed; 
+            opacity: 0.8; 
+        }
+        .copy-hint { 
+            font-size: 15px; 
+            color: #3865a0; 
+            background: #eaf2ff; 
+            border-radius: 28px; 
+            padding: 14px 18px; 
+            margin-top: 12px; 
+        }
+        #download-iframe { display: none; }
+
+        /* 隐藏iframe占位 */
+        .hidden-iframe { display: none; }
+
+        @media (max-width: 700px) {
+            .navbar {
+                border-radius: 40px;
+                flex-direction: column;
+            }
+            .address-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 36px;
+            }
+            .join-card h3 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 (联络页高亮) -->
+    <header class="navbar">
+        <div class="logo-area">
+            <div class="logo-mark">寻</div>
+            <span class="logo-text">寻计工作室</span>
+        </div>
+        <div class="nav-links">
+            <a href="./index.html">简介</a>
+            <a href="./products.html">产品</a>
+            <a href="./news.html">动态</a>
+            <a href="./contact.html" class="active">联络</a>
+        </div>
+        <div class="nav-placeholder">XUN JI</div>
+    </header>
+
+    <!-- 页面头部 -->
+    <div class="page-header">
+        <h2>📬 联络方式</h2>
+        <span class="header-sub">期待与你的交流</span>
+    </div>
+
+    <!-- 主要联系方式卡片网格 (3个) -->
+    <div class="contact-grid">
+        <!-- 邮件 -->
+        <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-method">电子邮件</div>
+            <div class="contact-detail">Xculate-Studio@outlook.com</div>
+            <div class="contact-detail" style="font-size: 15px; color:#3865a0;">反馈 · 合作 · 加入</div>
+            <div class="contact-note">周六日回复</div>
+            <a href="mailto:Xculate-Studio@outlook.com" class="contact-action">发送邮件 →</a>
+        </div>
+
+        <!-- 微信 -->
+        <div class="contact-card">
+            <div class="contact-icon">💬</div>
+            <div class="contact-method">微信</div>
+            <div class="contact-detail">HXD-OS</div>
+            <div class="contact-detail" style="font-size: 15px; color:#3865a0;">添加请备注「寻计工作室」</div>
+            <div class="contact-note">工作号：周五至周日 10:00-16:00</div>
+            <a href="#" class="contact-action" id="wechatCopyBtn">复制微信号</a>
+        </div>
+
+        <!-- QQ -->
+        <div class="contact-card">
+            <div class="contact-icon">💬</div>
+            <div class="contact-method">QQ</div>
+            <div class="contact-detail">3828646801</div>
+            <div class="contact-detail" style="font-size: 15px; color:#3865a0;">添加请备注「寻计工作室」</div>
+            <div class="contact-note">工作号：周五至周日 10:00-16:00</div>
+            <a href="#" class="contact-action" id="qqCopyBtn">复制QQ号</a>
+        </div>
+    </div>
+
+    <!-- ========= 新增: 加入我们申请表下载模块 ========= -->
+    <div class="join-download-section">
+        <div class="join-card">
+            <h3>📋 加入我们</h3>
+            <!-- 动态内容容器 (与原始下载逻辑一致) -->
+            <div id="join-dynamic-content" class="dynamic-content"></div>
+        </div>
+    </div>
+
+    <!-- 社交媒体区域
+    <div class="social-section">
+        <div class="social-title">
+            <span>🌐 社交平台</span>
+            <span style="font-size: 14px; font-weight: 400; color:#3865a0;">(点击图标可跳转)</span>
+        </div>
+        <div class="social-grid">
+            <a href="#" class="social-item" id="githubLink">
+                <span class="social-emoji">🐙</span>
+                <span class="social-name">GitHub</span>
+            </a>
+        </div>
+    </div> -->
+
+    <!-- 隐藏iframe (用于下载触发) 和 占位iframe -->
+    <iframe style="display:none;" id="join-download-iframe"></iframe>
+    <iframe style="display:none;" id="placeholder-iframe"></iframe>
+
+    <script>
+        (function() {
+            // ---------- 原有功能: 复制微信号/QQ号 ----------
+            const wechatBtn = document.getElementById('wechatCopyBtn');
+            const qqCopyBtn = document.getElementById('qqCopyBtn');
+            const githubLink = document.getElementById('githubLink');
+
+            if (wechatBtn) {
+                wechatBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const wechatId = 'HXD-OS';  // 更新为页面实际微信号
+                    navigator.clipboard.writeText(wechatId).then(() => {
+                        alert('✅ 微信号已复制：' + wechatId);
+                    }).catch(() => {
+                        const textarea = document.createElement('textarea');
+                        textarea.value = wechatId;
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                        alert('✅ 微信号已复制：' + wechatId);
+                    });
+                });
+            }
+
+            if (qqCopyBtn) {
+                qqCopyBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const qqId = '3828646801';
+                    navigator.clipboard.writeText(qqId).then(() => {
+                        alert('✅ QQ号已复制：' + qqId);
+                    }).catch(() => {
+                        const textarea = document.createElement('textarea');
+                        textarea.value = qqId;
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                        alert('✅ QQ号已复制：' + qqId);
+                    });
+                });
+            }
+
+            if (githubLink) {
+                githubLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open('https://github.com/Xculate', '_blank');
+                });
+            }
+
+            // ---------- 新增: 加入我们申请表下载模块 (完全移植原下载逻辑) ----------
+            function isInTencentApp() {
+                var ua = navigator.userAgent.toLowerCase();
+                return /micromessenger|qq\//.test(ua) || ua.indexOf('wechat') !== -1; 
+            }
+
+            // 申请表下载地址 (可替换为你的实际下载链接)
+            const JOIN_FORM_URL = 'https://easylink.cc/9ysp7d'; // 示例链接，请替换
+
+            var joinContainer = document.getElementById('join-dynamic-content');
+            var joinIframe = document.getElementById('join-download-iframe');
+
+            if (isInTencentApp()) {
+                // 在微信/QQ内: 显示提示和复制链接
+                joinContainer.innerHTML = `
+                    <div class="weixin-guide">
+                        <div style="font-size:40px; margin-bottom:10px;">📄</div>
+                        <div style="font-weight:600; font-size:22px; color:#0e2748;">请使用浏览器打开</div>
+                        <div class="copy-hint">复制以下链接，在浏览器中打开下载申请表</div>
+                        <div class="manual-link-box">${JOIN_FORM_URL}</div>
+                    </div>
+                `;
+            } else {
+                // 正常浏览器: 显示下载按钮
+                joinContainer.innerHTML = `
+                    <div class="download-zone">
+                        <button class="btn-primary" id="joinDownloadBtn">
+                            📥 下载申请表 (PDF)
+                        </button>
+                        <p style="text-align:center; color:#6c7f9e; font-size:14px; margin-top:15px;">
+                            点击后请稍候，将自动开始下载
+                        </p>
+                    </div>
+                `;
+
+                var joinBtn = document.getElementById('joinDownloadBtn');
+                
+                if (joinBtn) {
+                    joinBtn.addEventListener('click', function() {
+                        joinBtn.disabled = true;
+                        joinBtn.innerText = "正在请求下载...";
+                        joinIframe.src = JOIN_FORM_URL;  // 触发下载
+                        setTimeout(function() {
+                            joinBtn.disabled = false;
+                            joinBtn.innerText = "📥 下载申请表 (PDF)";
+                        }, 3000);
+                    });
+                }
+            }
+
+            // 隐藏iframe占位
+            const placeholderIframe = document.getElementById('placeholder-iframe');
+            if (placeholderIframe) placeholderIframe.src = 'about:blank';
+
+            console.log('联系方式页已加载，含“加入我们”下载模块');
+        })();
+    </script>
+
+    <!-- 提示：所有联系方式均可直接编辑文本和链接地址 -->
+    <!-- 
+        可编辑内容：
+        - 邮件地址: Xculate-Studio@outlook.com
+        - 微信号: HXD-OS
+        - QQ号: 3828646801
+        - 申请表下载链接: 替换 JOIN_FORM_URL 变量
+        - GitHub链接: 已在script中替换
+    -->
+</body>
+</html>

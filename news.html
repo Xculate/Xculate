@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>寻计工作室 · 动态</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f9faff 0%, #eef3fc 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 24px 40px 24px;
+        }
+
+        /* 导航栏 (与前两页完全一致) */
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            margin: 24px 0 32px 0;
+            padding: 12px 28px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 200px;
+            box-shadow: 0 10px 30px -10px rgba(20, 40, 80, 0.2);
+            border: 1px solid rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(145deg, #1e2e5c, #2b3d75);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 20px;
+            box-shadow: 0 8px 14px -4px rgba(30,46,92,0.3);
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 650;
+            background: linear-gradient(135deg, #1E2E5C, #2F427F);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e2e5c;
+            font-size: 16px;
+            transition: 0.15s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #4f8cff;
+            color: #0a1a3a;
+        }
+
+        .nav-links a.active {
+            border-bottom-color: #1e2e5c;
+            color: #0e1f3f;
+            font-weight: 600;
+        }
+
+        .nav-placeholder {
+            color: #4f658d;
+            background: #eaf2ff;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #cddfff;
+        }
+
+        /* 页面头部 */
+        .page-header {
+            max-width: 1200px;
+            width: 100%;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .page-header h2 {
+            font-size: 32px;
+            font-weight: 650;
+            background: linear-gradient(145deg, #17284c, #314882);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-right: 16px;
+        }
+        .edit-hint {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(5px);
+            padding: 8px 18px;
+            border-radius: 60px;
+            font-size: 14px;
+            color: #1e2e5c;
+            border: 1px solid #cddfff;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .edit-hint code {
+            background: #1b2f56;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 40px;
+            font-size: 13px;
+        }
+
+        /* 动态时间线容器 */
+        .timeline {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 每个动态条目 — 继承原卡片风格，但做纵向排列 */
+        .post-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 42px;
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 32px 34px 34px 34px;
+            box-shadow: 0 25px 40px -18px rgba(0, 40, 80, 0.2);
+            transition: all 0.2s ease;
+            margin-bottom: 28px;
+        }
+
+        .post-item:hover {
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 30px 50px -18px rgba(20, 60, 120, 0.3);
+        }
+
+        .post-date {
+            display: inline-block;
+            background: #eaf2ff;
+            border-radius: 60px;
+            padding: 6px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1b2f56;
+            border: 1px solid white;
+            margin-bottom: 18px;
+        }
+
+        .post-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1b2f56;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            background: linear-gradient(145deg, #17284c, #2d3f72);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .post-content {
+            color: #1f2f4f;
+            font-size: 17px;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            border-top: 2px dashed rgba(79, 140, 255, 0.2);
+            padding-top: 22px;
+            font-size: 14px;
+            color: #3865a0;
+        }
+
+        .post-tag {
+            background: #ffffffcc;
+            border: 1px solid #a1b9e0;
+            padding: 5px 16px;
+            border-radius: 40px;
+            font-size: 13px;
+        }
+
+        /* 空状态/加载中 */
+        .loading-placeholder, .empty-prompt {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            padding: 40px;
+            text-align: center;
+            color: #2b3d75;
+            font-size: 18px;
+            border: 1px dashed #a0bbdf;
+        }
+
+        /* 隐藏iframe占位 */
+        .hidden-iframe { display: none; }
+
+        @media (max-width: 600px) {
+            .navbar {
+                border-radius: 40px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .post-item {
+                padding: 24px;
+            }
+            .post-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 (动态页高亮) -->
+    <header class="navbar">
+        <div class="logo-area">
+            <div class="logo-mark">寻</div>
+            <span class="logo-text">寻计工作室</span>
+        </div>
+        <div class="nav-links">
+            <a href="./index.html">简介</a>
+            <a href="./products.html">产品</a>
+            <a href="./news.html" class="active">动态</a>
+            <a href="./contact.html">联络</a>
+        </div>
+        <div class="nav-placeholder">XUN JI</div>
+    </header>
+
+    <!-- 页面头部 + 编辑提示 (说明可通过文件读写更新内容) -->
+    <div class="page-header">
+        <h2>工作室动态</h2>
+        
+    </div>
+
+    <!-- 动态列表容器 (由JavaScript动态渲染) -->
+    <div id="timelineContainer" class="timeline">
+        <div class="loading-placeholder">⏳ 读取动态内容...</div>
+    </div>
+
+    <!-- 隐藏iframe保留原风格 (无功能) -->
+    <iframe style="display:none;" id="placeholder-iframe"></iframe>
+
+    <script>
+        (function() {
+            // --------------------------------------------------------------
+            // 动态模块：通过文件读写方式编辑 (模拟读取 posts.json)
+            // 你只需要在同级目录下创建 posts.json 文件，按格式书写即可。
+            // 如果不想创建文件，也可以直接修改下面的 DEFAULT_POSTS 数组。
+            // --------------------------------------------------------------
+
+            // 默认动态数据 (当无法加载外部json时使用，同时也作为格式示例)
+            const DEFAULT_POSTS = [
+                {
+                    "date": "2026-03-08",
+                    "title": "如果你看到这条消息，说明系统出问题了",
+                    "content": "还愣着干啥？赶紧反馈啊！",
+                    "tags": ["BUG", "BUG"],
+                    "author": "寻计开发组"
+                }
+            ];
+
+            // 用于存储最终展示的posts
+            let postsData = [];
+
+            // 获取容器
+            const container = document.getElementById('timelineContainer');
+
+            // 渲染函数：根据postsData渲染动态列表
+            function renderPosts(posts) {
+                if (!posts || posts.length === 0) {
+                    container.innerHTML = `<div class="empty-prompt">📭 暂无动态</div>`;
+                    return;
+                }
+
+                // 按日期倒序排列 (最新的在前)
+                const sorted = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
+
+                let htmlString = '';
+                sorted.forEach(post => {
+                    // 处理标签
+                    const tagsHtml = post.tags && post.tags.length 
+                        ? post.tags.map(t => `<span class="post-tag">#${t}</span>`).join('') 
+                        : '';
+
+                    htmlString += `
+                        <div class="post-item">
+                            <div class="post-date">📅 ${post.date || '日期待填'}</div>
+                            <div class="post-title">${post.title || '无标题'}</div>
+                            <div class="post-content">${(post.content || '').replace(/\n/g, '<br>')}</div>
+                            <div class="post-meta">
+                                ${tagsHtml}
+                                <span style="margin-left:auto;">✎ ${post.author || '工作室'}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = htmlString;
+            }
+
+            // 尝试通过 fetch 读取外部的 posts.json (正常文件读写方式)
+            // 如果失败或不存在，则使用默认数据，并给出友好提示（但不会覆盖文件）
+            fetch('./posts.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('posts.json 不存在或无法访问，使用默认数据');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // 检查数据是否为数组
+                    if (Array.isArray(data)) {
+                        postsData = data;
+                    } else {
+                        console.warn('posts.json 格式不是数组，使用默认数据');
+                        postsData = DEFAULT_POSTS;
+                    }
+                    renderPosts(postsData);
+                })
+                .catch(err => {
+                    console.warn('读取 posts.json 失败:', err.message);
+                    // 使用默认数据
+                    postsData = DEFAULT_POSTS;
+                    renderPosts(postsData);
+
+                    // 同时追加一条提示，表明可通过创建文件来覆盖内容
+                    const hintDiv = document.createElement('div');
+                    hintDiv.style.marginTop = '20px';
+                    hintDiv.style.background = '#eaeef9';
+                    hintDiv.style.borderRadius = '60px';
+                    hintDiv.style.padding = '16px 24px';
+                    hintDiv.style.textAlign = 'center';
+                    hintDiv.style.border = '1px solid #cddfff';
+                    hintDiv.innerHTML = '内容解释权最终归 寻计工作室 所有';
+                    container.appendChild(hintDiv);
+                });
+
+            // 保留原风格的隐藏iframe占位
+            const iframe = document.getElementById('placeholder-iframe');
+            iframe.src = 'about:blank';
+        })();
+    </script>
+
+    <!-- 说明：如何通过文件读写编辑动态 -->
+    <!--
+        使用方法：
+        1. 在和此HTML相同的文件夹下创建一个名为 posts.json 的文本文件。
+        2. 按照以下格式编写内容（UTF-8编码）：
+        
+        [
+            {
+                "date": "2026-03-08",
+                "title": "示例标题",
+                "content": "这里是详细内容，可以换行。",
+                "tags": ["标签1", "标签2"],
+                "author": "作者名"
+            },
+            {
+                "date": "2026-03-01",
+                "title": "另一个动态",
+                "content": "内容...",
+                "tags": ["新闻"],
+                "author": "工作室"
+            }
+        ]
+
+        3. 保存文件后刷新页面，就会自动读取并显示。
+        4. 如果不创建文件，页面会显示默认的三条示例动态。
+    -->
+</body>
+</html>
