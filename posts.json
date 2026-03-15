@@ -12,5 +12,12 @@
         "content": "新版本修复了表导入日期的读取问题和格式问题！",
         "tags": ["翔云系统", "更新"],
         "author": "bearThoamas"
+    },
+    {
+        "date": "2026-03-15",
+        "title": "XYSYS 翔云班级管理系统 v1.0.1.22 发布",
+        "content": "新版本修复了课表导入的数据库路径问题",
+        "tags": ["翔云系统", "更新"],
+        "author": "bearThoamas"
     }
 ]
