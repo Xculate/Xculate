@@ -1,0 +1,25 @@
+{
+  "pageTitle": "技术动态",
+  "pageSubtitle": "分享我们的实践、思考与行业观察",
+  "posts": [
+    {
+      "id": 1,
+      "title": "[发布日志] 翔云班级管理系统 1.0.1.22 发布",
+      "excerpt": "修复了几个小bug，优化了界面交互，提升了系统稳定性。感谢用户的反馈和支持！",
+      "date": "2026-03-15",
+      "category": "发布日志",
+      "tags": ["发布日志", "教育"],
+      "author": "熊晨羽",
+      "authorRole": "团队领导 / 主力开发",
+      "authorAvatar": "images/team/chenym-avatar.jpg",
+      "authorBio": "初二学生，领导团队，对Python，C++很熟悉",
+      "readTime": "1分钟",
+      "coverImage": "",
+      "featured": true
+    }
+  ],
+  "categories": [
+    "全部",
+    "发布日志"
+  ]
+}

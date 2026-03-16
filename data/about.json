@@ -1,0 +1,40 @@
+{
+  "studio": {
+    "name": "Xculate 寻计",
+    "founded": "2026",
+    "location": "广东·深圳",
+    "teamSize": "3人"
+  },
+  "mission": {
+    "title": "用代码构建价值",
+    "description": "我们是一群热爱技术的开发者，相信好的软件不仅能解决问题，更能创造新的可能。"
+  },
+  "story": {
+    "title": "故事",
+    "content": "2026年，在深圳一所学校的一个班级里，三个同学聚在一起，讨论着开发产品，寻计，便诞生了"
+  },
+  "values": [
+    {
+      "icon": "⚡",
+      "title": "敏捷",
+      "description": "快速交付，完整交付"
+    },
+    {
+      "icon": "🔧",
+      "title": "务实",
+      "description": "选对的技术，而不是炫的技术"
+    },
+    {
+      "icon": "📈",
+      "title": "成长",
+      "description": "每个项目都让我们变得更好"
+    }
+  ],
+  "stats": [
+  ],
+  "philosophy": {
+    "title": "我们的理念",
+    "quote": "代码是写给未来的信",
+    "author": "—— 团队手记"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "studio": {
+    "name": "Xculate 寻计",
+    "slogan": "我们写代码，也构建解决方案",
+    "subSlogan": "专注Web应用与移动端开发"
+  },
+  "featuredProjects": [
+    {
+      "id": 1,
+      "title": "翔云班级管理系统",
+      "techStack": ["Python", "PyQt5"],
+      "description": "为班级提供班级管理上的计数支持",
+      "image": "",
+      "link": "project.html?id=1",
+      "accentColor": "#2563eb"
+    }
+  ],
+  "techTags": ["Python", "PyQt5"],
+  "quickLinks": [
+    {
+      "title": "查看全部项目",
+      "link": "projects.html",
+      "icon": "→"
+    }
+  ]
+}

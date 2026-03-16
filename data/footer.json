@@ -1,0 +1,45 @@
+{
+  "studio": {
+    "name": "Xculate 寻计",
+    "brief": "专注于Web应用与电脑端开发的软件工作室。我们写代码，也构建解决方案。",
+    "since": "2026"
+  },
+  "copyright": {
+    "text": "© 2026 Xculate 寻计",
+    "rights": "保留所有权利"
+  },
+  "social": [
+    {
+      "platform": "github",
+      "url": "https://github.com/Xculate",
+      "icon": "🐙",
+      "label": "GitHub",
+      "followers": "1+"
+    }
+  ],
+  "quickLinks": [
+    {
+      "title": "探索",
+      "links": [
+        { "label": "主页", "url": "index.html" },
+        { "label": "简介", "url": "about.html" },
+        { "label": "项目", "url": "projects.html" },
+        { "label": "团队", "url": "team.html" },
+        { "label": "动态", "url": "posts.html" },
+        { "label": "联络", "url": "contact.html" }
+      ]
+    }
+  ],
+  "contact": {
+    "email": "Xculate-Studio@outlook.com",
+    "address": "广东·深圳 龙华区"
+  },
+  "projects": {
+    "title": "近期项目",
+    "items": [
+      { "name": "翔云班级管理系统", "year": "2026" }
+      
+    ]
+  },
+  "credit": "Built with ❤️ by Xculate Studio"
+}

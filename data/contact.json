@@ -1,0 +1,67 @@
+{
+  "pageTitle": "联络我们",
+  "pageSubtitle": "有任何想法或问题？欢迎随时联系我们",
+  
+  "contactMethods": [
+    {
+      "icon": "✉️",
+      "title": "邮箱",
+      "value": "Xculate-Studio@outlook.com",
+      "link": "mailto:Xculate-Studio@outlook.com",
+      "description": "周六周日回复"
+    },
+    {
+      "icon": "💬",
+      "title": "QQ",
+      "value": "HXD-OS",
+      "description": "添加请备注「合作」"
+    },
+    {
+      "icon": "🐙",
+      "title": "Github",
+      "value": "Xculate",
+      "link": "https://github.com/Xculate",
+      "description": "关注我们的最新动态"
+    }
+  ],
+  
+  "inquiryTypes": [
+    "技术咨询",
+    "项目合作",
+    "加入我们",
+    "商务合作",
+    "其他"
+  ],
+  
+  "faq": [
+    {
+      "question": "你们的运作方式是怎样的？",
+      "answer": "我们是学生组成的团队，我们一般会在周末进行项目开发和客户沟通，平时会在课余时间处理一些轻量级的任务。我们非常注重效率和沟通，确保每个项目都能按时交付并满足客户需求。"
+    },
+    {
+      "question": "项目周期一般是多久？",
+      "answer": "小型项目2-4周，中型项目1-3个月，大型项目3-6个月。具体时间取决于项目复杂度和需求明确程度。"
+    },
+    {
+      "question": "你们提供售后支持吗？",
+      "answer": "是的，项目交付后提供持久的售后服务，具体时间视项目而定，对于重要且复杂的项目，我们建议至少提供3个月的免费维护期，以确保系统稳定运行并及时解决可能出现的问题。"
+    },
+    {
+        "question": "你们的收费标准是怎样的？",
+        "answer": "初期项目我们考虑免费的公益项目，后期会视项目难易程度而定，小型项目费用一般在 100~500 之间，中型项目 500 ~ 1000，大型项目 1000+"
+    },
+    {
+        "question": "你们接受哪些类型的项目？",
+        "answer": "我们专注于Web应用和电脑端开发，欢迎各种类型的项目咨询，特别是那些具有创新性和社会价值的项目。我们也非常乐意与初创企业合作，共同打造有影响力的产品。"
+    }
+  ],
+  
+  "social": [
+    {
+      "platform": "GitHub",
+      "icon": "🐙",
+      "url": "https://github.com/Xculate",
+      "followers": ""
+    }
+  ]
+}
