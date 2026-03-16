@@ -1,0 +1,63 @@
+{
+  "studio": {
+    "name": "Xculate 寻计",
+    "founded": "2018",
+    "teamSize": "12人",
+    "culture": "我们相信，好的代码来自好的团队"
+  },
+  "teamPhoto": "images/team/team-photo.jpg",
+  "stats": [
+    {
+      "number": "3",
+      "label": "团队成员"
+    }
+  ],
+  "members": [
+    {
+      "id": 1,
+      "name": "熊晨羽",
+      "role": "团队引领者 / 开发主力",
+      "bio": "初二学生，编程启蒙于Python，后转向C++和算法竞赛。对技术充满热情，喜欢挑战复杂问题，是团队的技术核心。",
+      "skills": ["Python", "C++", "算法设计"],
+      "social": {
+        "github": "https://github.com/BearThomas"
+      },
+      "quote": "代码是写给未来的信",
+      "image": "images/team/chenym-portrait.jpg"
+    },
+    {
+      "id": 2,
+      "name": "何雨峻",
+      "role": "产品负责人",
+      "bio": "略懂Python，擅长制作宣传材料，负责项目管理和客户沟通。对产品设计有独到见解，确保技术实现与客户需求完美契合。",
+      "skills": ["产品策略", "用户研究", "原型设计"],
+      "social": {
+        "github": "https://github.com/HXD-OS"
+      },
+      "quote": "好的产品是技术和需求的完美平衡",
+      "image": "images/team/linqing-portrait.jpg"
+    },
+    {
+      "id": 3,
+      "name": "叶彦辰",
+      "role": "测试 / 客户对接",
+      "bio": "测试工程师，负责项目的质量保证和客户沟通。对细节有极高的敏感度，确保每个交付物都达到客户的期望。",
+      "skills": ["测试设计", "质量保证", "客户沟通"],
+      "social": {},
+      "quote": "质量是对客户的尊重",
+      "image": "images/team/zhangyh-portrait.jpg"
+    }
+  ],
+  "joinUs": {
+    "title": "加入我们",
+    "description": "我们一直在寻找热爱技术、相信代码能改变世界的伙伴。",
+    "positions": [
+      "高级前端工程师",
+      "后端开发工程师",
+      "产品经理",
+      "UI设计师"
+    ],
+    "example": "https://easylink.cc/9ysp7d",
+    "contact": "Xculate-Studio@outlook.com"
+  }
+}

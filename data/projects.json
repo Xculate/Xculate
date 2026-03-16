@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "翔云班级管理系统",
+      "techStack": ["Python", "PyQt5"],
+      "description": "为班级提供班级管理上的计数支持",
+      "image": "",
+      "accentColor": "#2563eb",
+      "client": "翔云管理",
+      "duration": "2个月"
+    }
+  ]
+}

@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联络我们 · Xculate 寻计</title>
+    <title>关于我们 · Xculate 寻计</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 导航栏（与主页保持一致） -->
     <nav class="nav">
         <div class="container">
             <a href="/" class="nav-logo">Xculate 寻计</a>
             <div class="nav-right">
                 <div class="nav-links">
                     <a href="index.html">主页</a>
-                    <a href="about.html">简介</a>
+                    <a href="about.html"  class="active">简介</a>
                     <a href="projects.html">项目</a>
                     <a href="team.html">团队</a>
-                    <a href="posts.html">动态</a>
-                    <a href="contact.html" class="active">联络</a>
+                    <a href="posts.html">动态</a>  <!-- 新增 -->
+                    <a href="contact.html">联络</a>
                 </div>
-                <button class="theme-toggle" id="themeToggle">
+                <button class="theme-toggle" id="themeToggle" aria-label="切换深色/浅色模式">
                     <span class="light-icon">☀️</span>
                     <span class="dark-icon">🌙</span>
                 </button>
@@ -28,6 +29,7 @@
         </div>
     </nav>
 
+    <!-- 简介主内容区域 -->
     <main class="main">
         <div class="container" id="app">
             <!-- 由JS动态渲染 -->
@@ -35,7 +37,7 @@
     </main>
 
     <script src="js/theme.js"></script>
-    <script src="js/contact.js"></script>
+    <script src="js/about.js"></script>
     <script src="js/footer.js"></script>
 </body>
 </html>

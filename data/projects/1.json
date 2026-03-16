@@ -1,0 +1,36 @@
+{
+  "id": 1,
+  "title": "翔云班级管理系统",
+  "subtitle": "让班级管理像写代码一样清晰",
+  "client": "班级管理",
+  "industry": "教育",
+  "duration": "2个月",
+  "team": ["前端2人", "后端1人", "产品1人"],
+  "techStack": [
+    {
+      "category": "前端",
+      "items": ["PyQt5"]
+    },
+    {
+      "category": "后端",
+      "items": ["Python"]
+    }
+  ],
+  "coverImage": "",
+  "gallery": [
+    
+  ],
+  "challenge": "班级管理上由于同学多而容易出现管理问题",
+  "solution": "我们设计了模块化应用，将各种小工具、小应用模块化，做成我们的程序",
+  "result": "使用后提升了考勤效率，更容易查看课表菜单",
+  "features": [
+    "支持自定义页面布局",
+    "支持天气、时间查看，以及班级同学生日查看",
+    "数据可一键导入",
+    "文件储存安全"
+  ],
+  "testimonial": {
+    
+  },
+  "link": "https://xysys.netlify.app" 
+}
