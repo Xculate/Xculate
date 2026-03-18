@@ -16,6 +16,21 @@
       "readTime": "1分钟",
       "coverImage": "",
       "featured": true
+    },
+    {
+      "id": 2,
+      "title": "班级非对称加密系统构想（脱离计算机）",
+      "excerpt": "想和同桌传小纸条又怕被老师看见？想体验真正的非对称加密？这篇博客带你从零理解——不用算大数幂，只用查表和加减法！",
+      "date": "2026-03-18",
+      "category": "思维创意",
+      "tags": ["思维创意", "班级"],
+      "author": "熊晨羽",
+      "authorRole": "团队领导 / 主力开发",
+      "authorAvatar": "images/team/chenym-avatar.jpg",
+      "authorBio": "初二学生，领导团队，对Python，C++很熟悉",
+      "readTime": "8分钟",
+      "coverImage": "",
+      "featured": true
     }
   ],
   "categories": [
