@@ -31,6 +31,21 @@
       "readTime": "8分钟",
       "coverImage": "",
       "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Windows与iPhone剪贴板/文件极速互传方案",
+      "excerpt": "电脑上复制了一段代码，想在手机上粘贴，需要打开微信发送文件传输助手",
+      "date": "2026-04-03",
+      "category": "思维创意",
+      "tags": ["思维创意", "Windows", "iOS", "解决方案"],
+      "author": "熊晨羽",
+      "authorRole": "团队领导 / 主力开发",
+      "authorAvatar": "images/team/chenym-avatar.jpg",
+      "authorBio": "初二学生，领导团队，对Python，C++很熟悉",
+      "readTime": "10分钟",
+      "coverImage": "",
+      "featured": true
     }
   ],
   "categories": [
